@@ -1,0 +1,53 @@
+* {
+  z-index: 1;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+}
+
+.center {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+}
+
+.menu {
+  position: fixed;
+  background-color: purple;
+  text-align: left;
+  width: 100%;
+  opacity: 100%;
+  z-index: 2;
+}
+
+.corbg {
+  border: solid blue 10px;
+  color: blue;
+}
+
+li {
+  
+  color: white;
+  margin-right: 20px;
+  display: inline;
+  border: 15px solid purple;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  width: 25px;
+  height: 25px;
+}
+
+a:hover {
+  
+  border: solid blue 15px;
+  color: white;
+  background-color: blue;
+}
