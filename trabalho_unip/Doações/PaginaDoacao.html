@@ -17,12 +17,12 @@
 					<h1 class='form__title' style="margin-bottom: 10px;"> Doe aqui! </h1>	
 
 					<div class='form__input-group'>
-						<input type='text' class='form__input-cadastro' autofocus placeholder='Nome' id="nome">
+						<input type='text' class='form__input-cadastro' autofocus placeholder='Nome' id="nome" required>
 						<input type='text' class='form__input-cadastro' autofocus placeholder='Sobrenome'>
 					</div>		
 
 					<div class='form__input-group'>
-						<input type='text' class='form__input' autofocus placeholder='Email'>
+						<input type='email' class='form__input' autofocus placeholder='Email'>
 					</div>	
 
 					<button class='form__button' type="button" onclick="mostrar('doar2', 'doar1')"> Próximo </button>
@@ -57,7 +57,8 @@
 					</div>
 
 					<div class='form__input-group'>
-						<input type='number' class='form__input' autofocus placeholder='Quantia doada'>
+						<input type='number' class='form__input' autofocus placeholder='Quantia doada' id="valor" required>
+						<p style="font-size: 13px;">*mínimo de 1 real</p>
 					</div>
 
 					<div class="tdu">
@@ -73,9 +74,9 @@
 				</form>	
 				
 			</div>	
-
-			<h1 style="display: none; text-align: center;" id="fim">Obrigado Por Doar!</h1>
-
+				<div style="display: none; text-align: center;" id="fim">
+				
+				</div>
         </div>
 
 		<script  src="doações.js"></script>
