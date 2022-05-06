@@ -1,0 +1,132 @@
+@import url(//fonts.googleapis.com/css?family=Noto+Serif);
+@import url(//fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(//fonts.googleapis.com/css?family=Shippori+Antique);
+
+
+.menu {
+  position: fixed;
+  background-color: #0d5cdb;
+  width: 100%;
+  height: 65px;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.logo_menu {
+  position: absolute;
+  margin-top: -10px;
+}
+
+.links_menu {
+  position: relative;
+  margin-top: 15px;
+  margin-left: 750px;
+}
+
+h1, h3 {
+  text-align: center;
+  font-family: 'Shippori Antique';
+}
+
+h3 {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+p {
+  text-align: justify;
+  margin-left: 75px;
+  margin-right: 150px;
+  font-family: 'Shippori Antique';
+  font-size: 25px;  
+}
+
+.texto-principal {
+  position: absolute;
+  background: #0d5cdb;
+  color: #0a0a0a;
+  border: #0a0a0a solid 3px;
+  margin-top: 200px;
+  margin-left: 65px;
+  width: 500px;
+  height: 200px;
+  z-index: 2;
+}
+
+.imagem-principal {
+  position: relative;
+  margin-top: 57px;
+  width: 1349px;
+  height: 570px;
+  margin-left: -8px;
+  z-index: 1;
+}
+
+li {
+  font-size: 20px;
+  font-family: 'Source Code Pro';
+  color: black;
+  margin-right: 50px;
+  display: inline;
+}
+
+.a_inline {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.a_inline:hover {
+  color: white;
+}
+
+.a_final {
+  color: #0d5cdb;
+  text-decoration: none;
+}
+
+.a_final:hover {
+  color: #051982;
+  text-decoration: underline;
+}
+
+.fundo {
+  position: absolute;
+  margin-top: -130px;
+  background-color: #dfe2f2;
+  margin-left: -8px;
+}
+
+.first-space {
+  position: relative;
+  margin-top: 200px;
+}
+
+.table1 {
+  margin-top: 55px;
+}
+
+.table2 {
+  margin-top: 55px;
+}
+
+.td1 {
+  margin-left: 250px;
+}
+
+.td2 {
+  margin-right: 250px;
+}
+
+.img-right {
+  margin-right: 50px;
+  height: 300px;
+  border: #0d5cdb solid 3px
+}
+
+.img-left {
+  margin-left: 50px;
+  height: 300px;
+  border: #0d5cdb solid 3px
+}
