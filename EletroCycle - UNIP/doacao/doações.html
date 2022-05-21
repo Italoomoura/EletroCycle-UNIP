@@ -4,10 +4,11 @@
         <title>EletroCycle - Doações</title>
         <link rel="stylesheet" href="doações.css">
         <link rel="icon" type="image/x-icon" href="../imagens/Icone.png">
+        <script src="doações.js"></script>
     </head>
     <body>
 
-        <div class="menu">
+        <div class="menu" id="menu">
             <div class="logo_menu p_menu">
                 <p>EletroCycle</p>
             </div>
@@ -16,11 +17,12 @@
                     <li><a href="../principal/principal.html" class="a_inline">Início</a></li>
                     <li><a href="../sobrenos/sobrenos.html" class="a_inline">Sobre nós</a></li>
                     <li><a href="../doacao/doações.html" class="a_inline">Doações</a></li>
+                    <li><a href="javascript:MenuMostar('Menu2', 'menu')" onclick="MenuMostrar('Menu2', 'menu')" class="a_inline">Menu</a></li>
                 </ul>
             </div>   
         </div>
 
-        <div class="menu2">
+        <div class="menu2" id="Menu2" style="display: none;">
             <a href="#1"><button>Porque doar?</button></a>
             <a href='#2'><button>Como as doações nos ajudam?</button></a>
             <a href='#3'><button>Para onde vão as doações?</button></a>
@@ -98,6 +100,6 @@
                 e garantindo um futuro melhor para as futuras gerações!
             </p>
         </div>
-        <a href='PaginaDoacao.html' target="_blank"><button class="button2"> Doe aqui! </button></a>
+        <a href='doar/PaginaDoacao.html' target="_blank"><button class="button2"> Doe aqui! </button></a>
     </body>
 </html>

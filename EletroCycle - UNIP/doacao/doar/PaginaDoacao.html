@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EletroCycle - Doar</title>
+        <link rel="stylesheet" href="PaginaDoacao.css">
+		<link rel="icon" type="image/x-icon" href="../../imagens/Icone.png">
+		<script src="PaginaDoacao.js"></script>
+		<script src="https://www.paypal.com/sdk/js?client-id=AdSLdEO0p36epWqB2P4nfnFxD2I_p4glufnExUNLC5iYu69nWnGJssr7-FFywEKNixsu3vXXuV4Q5fdA"></script>
+    </head>
+    <body>
+
+        <div class="container">
+
+			<!--Doar-->
+
+			<div id="doar1">
+				<form action='' class='form' id='createAccount'>
+
+					<h1 class='form__title' style="margin-bottom: 10px;"> Doe aqui! </h1>	
+
+					<div class='form__input-group'>
+						<input type='text' class='form__input-cadastro' autofocus placeholder='Nome' id="nome" required>
+						<input type='text' class='form__input-cadastro' autofocus placeholder='Sobrenome'>
+					</div>		
+
+					<div class='form__input-group'>
+						<input type='email' class='form__input' autofocus placeholder='Email'>
+					</div>	
+
+					<button class='form__button' type="button" onclick="mostrar('doar2', 'doar1')"> Próximo </button>
+
+				</form>
+				
+			</div>
+			
+			<!--Métodos de Pagamentos-->
+
+			<div id="doar2" style="display: none;">
+				
+				<h1>Métodos de Pagamento</h1>
+				<button class="form__button" onclick="pixmostrar('doar2', 'Pix')">Pix</button> <br> <br>
+				<button class="form__button" onclick="cartaomostrar('doar2', 'Cartao')">Cartão</button> <br> <br>
+				<button class="form__button" onclick="paypalmostrar('doar2', 'PayPal')">PayPal</button>
+
+			</div>	
+
+<!---------------------------------------------------- Pix ---------------------------------------------------->
+
+			<div id="Pix" style="display: none;">
+				<button type="button" onclick="GeraQRCode('copybutton')" class='form__button'>
+					Gerar QR Code
+				</button>
+				<img id="imageQRCode" src="../../imagens/pix-img.jpg" style="width: 400px;">
+				<input style="display: none;" type="text" name="texto" id="texto" value="00020126400014br.gov.bcb.pix0111525448748800203Pix5204000053039865802BR5921ITALO DE MOURA SANTOS6006JARINU62290525GImcxQFk5EgAgMFBgpGXA7ary6304DE1D" readonly/>
+				<div id="copybutton" style="display: none;">
+					<button onclick="copiarTexto()" class='form__button' id="copytext">Copiar Chave Pix</button>
+				</div> </br> 
+				<a href='PaginaDoacao.html'><button class="button2">Voltar</button></a>
+			</div>
+
+<!---------------------------------------------------Cartão --------------------------------------------------->
+			
+			<div id="Cartao" style="display: none;">
+
+				<form action='' class='form' id='createAccount2'>
+
+					<h1 class='form__title' style="margin-bottom: 10px;"> Doe aqui! </h1>
+
+					<div class='form__input-group'>
+						<input type='text' class='form__input' name="number" autofocus placeholder='Número do cartão' id="cartao">
+					</div>
+
+					<div class='form__input-group'>
+						<input type='text' class='form__input' name="name" autofocus placeholder='Nome do titular do cartão'>
+					</div>
+
+					<div class='form__input-group'>
+						<input type='text' class='form__input-cadastro' name="expiry" autofocus placeholder='Validade'>
+						<input type='text' class='form__input-cadastro' name="cvc" autofocus placeholder='CVV'>
+					</div>
+
+					<div class='form__input-group'>
+						<input type='number' class='form__input-cadastro' autofocus placeholder='Telefone'>
+						<input type='number' class='form__input-cadastro' autofocus placeholder='CPF'>
+					</div>
+
+					<div class='form__input-group'>
+						<input type='number' class='form__input' autofocus placeholder='Quantia doada' id="valor" required>
+						<p style="font-size: 13px;">*mínimo de 1 real</p>
+					</div>
+
+					<div class="tdu">
+						<input type="checkbox" id="tdu">
+						<label for="tdu" class="tdu_text"> Aceito receber emails sobre a situação da ONG </label>
+					</div>
+
+					<div class='form--buttons2'>
+						<button class='form__button form--button2' type='submit' id='Voltar'> Voltar </button>
+						<button class='form__button form--button2' type='button' onclick="fim('fim', 'doar2')"> Finalizar </button>
+					</div>
+					
+				</form>	
+				
+			</div>
+
+<!---------------------------------------------------PayPal --------------------------------------------------->
+
+			<div id="PayPal" style="display: none; text-align: center;">
+				<div id="smart-button-container">
+    				<div style="display: none;"><label for="description"> </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="Doar Para EletroCyclo"></div>
+      				<p id="descriptionError" style="display: none;">Please enter a description</p>
+    				<div style="text-align: center"><label for="amount"> </label><input name="amountInput" type="number" id="amount" value="" ><span> BRL</span></div>
+      				<p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Por Favor Insira um valor!</p>
+   			 		<div id="invoiceidDiv" style="display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+      				<p id="invoiceidError" style="display: none;">Please enter an Invoice ID</p>
+    				<div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container" onclick="paypalmostrar('doar2', 'PayPal')"></div>
+  				</div>
+			</div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=BRL" data-sdk-integration-source="button-factory"></script>
+  <script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = "block";
+    }
+
+    var purchase_units = [{"description":"aads","amount":{"currency_code":"BRL","value":1,"breakdown":{"item_total":{"currency_code":"BRL","value":1}}},"items":[{"name":"item name","unit_amount":{"currency_code":"BRL","value":1},"quantity":"1","category":"DONATION"}]}]
+
+    function validate(event) {
+      return event.value.length > 0;
+    }
+
+    paypal.Buttons({
+      style: {
+        color: 'blue',
+        shape: 'pill',
+        label: 'donate',
+        layout: 'vertical',
+        
+      },
+
+      onInit: function (data, actions) {
+        actions.disable();
+
+        if(invoiceidDiv.style.display === "block") {
+          elArr.push(invoiceid);
+        }
+
+        elArr.forEach(function (item) {
+          item.addEventListener('keyup', function (event) {
+            var result = elArr.every(validate);
+            if (result) {
+              actions.enable();
+            } else {
+              actions.disable();
+            }
+          });
+        });
+      },
+
+      onClick: function () {
+        if (description.value.length < 1) {
+          descriptionError.style.visibility = "visible";
+        } else {
+          descriptionError.style.visibility = "hidden";
+        }
+
+        if (amount.value.length < 1) {
+          priceError.style.visibility = "visible";
+        } else {
+          priceError.style.visibility = "hidden";
+        }
+
+        if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
+          invoiceidError.style.visibility = "visible";
+        } else {
+          invoiceidError.style.visibility = "hidden";
+        }
+
+        purchase_units[0].description = description.value;
+        purchase_units[0].amount.value = amount.value;
+        purchase_units[0].amount.breakdown.item_total.value = amount.value;
+        purchase_units[0].items[0].unit_amount.value = amount.value;
+
+        if(invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+        }
+      },
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+		  var nome = document.getElementById("nome");
+		  var valor = document.getElementById("amount");
+          const element = document.getElementById('PayPal');
+          element.innerHTML = '';
+			if (nome.value == ''){
+				element.innerHTML = '<h3>Obrigado Por Doar '+valor.value+' reais!</h3>';
+			}
+			else{
+				element.innerHTML = '<h3>Obrigado Por Doar '+valor.value+' reais, Senhor(a) '+nome.value+'!</h3>';
+			}
+          
+        });
+      },
+
+      onError: function (err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+  </script>
+
+<!---------------------------------------------------- Fim ---------------------------------------------------->
+
+<div style="display: none; text-align: center;" id="fim">
+			</div>
+        </div>
+    </body>
+</html>

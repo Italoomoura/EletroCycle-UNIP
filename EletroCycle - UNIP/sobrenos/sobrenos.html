@@ -5,9 +5,10 @@
         <link rel="stylesheet" href="sobrenos.css">
         <title>EletroCycle - Sobre Nós</title>
         <link rel="icon" type="image/x-icon" href="../imagens/Icone.png">
+        <script src="sobrenos.js"></script>
     </head>
     <body>
-        <div class="menu">
+        <div class="menu" id="menu">
             <div class="logo_menu">
                 <p class="p_logo">EletroCycle</p>
             </div>
@@ -16,11 +17,12 @@
                     <li><a href="../principal/principal.html" class="a_inline">Início</a></li>
                     <li><a href="../sobrenos/sobrenos.html" class="a_inline">Sobre nós</a></li>
                     <li><a href="../doacao/doações.html" class="a_inline">Doações</a></li>
+                    <li><a href="javascript:MenuMostar('Menu2', 'menu')" onclick="MenuMostrar('Menu2', 'menu')" class="a_inline">Menu</a></li>
                 </ul>
             </div>   
         </div>
 
-        <div class="menu2">
+        <div class="menu2" id="Menu2" style="display: none;">
             <a href="#1"><button>Quem somos?</button></a>
             <a href='#2'><button>Como começou e como está</button></a>
             <a href='#3'><button>O que fazemos</button></a>
